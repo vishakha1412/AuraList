@@ -12,12 +12,15 @@ import { updateTodo } from '../features/todoSlice.js';
     const [title, setTitle] = React.useState(todoToUpdate ? todoToUpdate.title : '');
     const [date, setDate] = React.useState(todoToUpdate ? todoToUpdate.date : '');
     const [time, setTime] = React.useState(todoToUpdate ? todoToUpdate.time : '');
+      const [description,setContent] = React.useState(todoToUpdate ? todoToUpdate.description : '');
     const Edit = (id) => {
         const updatedTodo = {
             id: id,
             title: title,
             date: date,
-            time: time
+            time: time,
+            description: description,
+             
         }
         
         dispatch(updateTodo(updatedTodo));
@@ -33,6 +36,9 @@ import { updateTodo } from '../features/todoSlice.js';
               Text:  <input type='text' placeholder='Enter your ideas'  onChange={(e)=>setTitle(e.target.value)} value={title}
                className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
 />
+              Description: <textarea placeholder='Enter your ideas'  onChange={(e)=>setContent(e.target.value)} value={description}
+               className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+        ></textarea>
               Date: <input type='date'   onChange={(e)=>setDate(e.target.value)} value={date}
                className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
         />

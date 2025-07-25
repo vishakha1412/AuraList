@@ -19,6 +19,7 @@ const AddData = () => {
   const[title,setTitle]=useState('')
       const[date,setDate]=useState('')
        const[time,setTime]=useState('')
+        const[description,setContent]=useState('')
         const navigate=useNavigate();
 
   const handleChange = (e) => {
@@ -41,6 +42,8 @@ const AddData = () => {
       title: title,
       date: date,
       time: time,
+      description: description,
+       
       id: Date.now().toString()
     };
     
@@ -49,6 +52,7 @@ const AddData = () => {
     setTitle('');
     setDate('');
     setTime('');
+    setContent('');
     setShowWarning(false);
      
   }
@@ -74,6 +78,9 @@ const AddData = () => {
                className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition "
 
                />
+               description: <textarea placeholder='Enter your ideas'  onChange={(e)=>setContent(e.target.value)} value={description}
+               className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+        ></textarea>
             {showWarning && <p className="text-red-500 text-sm mb-4">Please enter a valid task title.</p>}
               Date: <input type='date'   onChange={(e)=>setDate(e.target.value)}
                className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"

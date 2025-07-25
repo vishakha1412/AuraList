@@ -5,12 +5,12 @@ const todoSlice = createSlice({
         todos: [
             {
                  
-                 
+                  done:false,
             }
 ],
         loading: false,
         error: null,
-        done:false,
+       
 
          
       
@@ -35,12 +35,8 @@ const todoSlice = createSlice({
         setTodos: (state, action) => {
             state.todos = action.payload;
         },
-        setLoading: (state, action) => {
-            state.loading = action.payload;
-        },
-        setError: (state, action) => {
-            state.error = action.payload;
-        },
+         
+        
     },
 });
 export const {
@@ -49,8 +45,8 @@ export const {
     updateTodo,
     setDone,
     setTodos,
-    setLoading,
-    setError
+    
+    
 } = todoSlice.actions;
 export default todoSlice.reducer;
 export const selectTodos = (state) => state.todo.todos;

@@ -10,8 +10,7 @@ import { selectTodos } from '../features/todoSlice.js';
 
 const User = () => {
     
-
-   // const[Todo,addTodo]=useState([' ']);
+const [done, setDone] = useState(false);
   
     
      
@@ -27,8 +26,9 @@ const handleUpdate = (id) => {
 const handleDone = (id) => {
   const updatedTodo = Todo.map(item => {
     if (item.id === id) {
+      setDone(!done);
       return { ...item, done: !item.done }; // Toggle done status
-      useDispatch(setDone(!done));
+       
     }
     return item;
 
@@ -54,6 +54,7 @@ const Todo= useSelector((state) => state.todo.todos)
       <div  className="bg-white/20 bg-opacity-40 backdrop-blur-lg border border-white border-opacity-30 p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 object-fill">
 
         <h3 className="text-xl font-semibold text-white">Title : {item.title}</h3>
+        <p className="text-white mt-2">{item.description}</p>
         <p className="text-white mt-2">DATE : {item.date}</p>
         <p className="text-white mt-1">TIME : {item.time}</p>
          <div className="mt-4 flex gap-4">
@@ -74,10 +75,10 @@ const Todo= useSelector((state) => state.todo.todos)
     </button>
      
     <button   onClick={() =>handleDone(item.id)} className={`s hover:bg-green-500 text-white px-4 py-2 rounded-md text-sm font-medium transition 
-      ${item.done ? 'bg-pink-400' : 'bg-green-400'}
+      ${done ? 'bg-pink-400' : 'bg-green-400'}
        
     `}
-    >{item.done?'Done':'Mark done'}</button>
+    >{done?'Done':'Mark done'}</button>
     </div>
      
   </div>

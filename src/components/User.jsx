@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector  ,useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router';
-import { removeTodo, updateTodo } from '../features/todoSlice.js';
+import { removeTodo, updateTodo ,setDone} from '../features/todoSlice.js';
 import { selectTodos } from '../features/todoSlice.js';
 
  
@@ -28,8 +28,11 @@ const handleDone = (id) => {
   const updatedTodo = Todo.map(item => {
     if (item.id === id) {
       return { ...item, done: !item.done }; // Toggle done status
+      useDispatch(setDone(!done));
     }
     return item;
+
+    
   });
   dispatch(updateTodo(updatedTodo));
   console.log(updatedTodo);
@@ -55,25 +58,27 @@ const Todo= useSelector((state) => state.todo.todos)
         <p className="text-white mt-1">TIME : {item.time}</p>
          <div className="mt-4 flex gap-4">
     
-     
+     <div className='sm:flex sm:items-center sm:justify-between space-y-2 sm:space-y-0 space-x-2'>
+
     <button
       onClick={() => handleDelete(item.id)}
-      className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition"
+      className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition min-w-[100px]"
     >
       Delete
     </button>
     <button
       onClick={() => handleUpdate(item.id)}
-      className="bg-yellow-400 hover:bg-yellow-500 text-white px-4 py-2 rounded-md text-sm font-medium transition"
+      className="bg-yellow-400 hover:bg-yellow-500 text-white px-4 py-2 rounded-md text-sm font-medium transition  min-w-[100px]"
     >
       Update
     </button>
      
-    <button   onClick={() =>handleDone(item.id)} className={`bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded-md text-sm font-medium transition 
+    <button   onClick={() =>handleDone(item.id)} className={`s hover:bg-green-500 text-white px-4 py-2 rounded-md text-sm font-medium transition 
       ${item.done ? 'bg-pink-400' : 'bg-green-400'}
        
     `}
     >{item.done?'Done':'Mark done'}</button>
+    </div>
      
   </div>
   </div>

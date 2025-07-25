@@ -3,10 +3,14 @@ const todoSlice = createSlice({
     name: "todo",
     initialState: {
         todos: [
-            {}
+            {
+                 
+                 
+            }
 ],
         loading: false,
         error: null,
+        done:false,
 
          
       
@@ -14,6 +18,7 @@ const todoSlice = createSlice({
     reducers: {
         addTodo: (state, action) => {
             state.todos.push(action.payload);
+            
         },
         removeTodo: (state, action) => {
             state.todos = state.todos.filter(todo => todo.id !== action.payload);
@@ -23,6 +28,9 @@ const todoSlice = createSlice({
             if (index !== -1) {
                 state.todos[index] = action.payload;
             }
+        },
+        setDone: (state, action) => {
+            state.done = action.payload;
         },
         setTodos: (state, action) => {
             state.todos = action.payload;
@@ -39,6 +47,7 @@ export const {
     addTodo,
     removeTodo,
     updateTodo,
+    setDone,
     setTodos,
     setLoading,
     setError
@@ -46,8 +55,4 @@ export const {
 export default todoSlice.reducer;
 export const selectTodos = (state) => state.todo.todos;
 export const selectLoading = (state) => state.todo.loading;
-export const selectError = (state) => state.todo.error;
-export const selectTodoById = (state, id) => state.todo.todos.find(todo =>
-    todo.id === id);
-export const selectTodosByDate = (state, date) => state.todo.todos.filter(todo =>
-    todo.date === date);
+ 

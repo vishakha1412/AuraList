@@ -37,9 +37,9 @@ const Todo= useSelector((state) => state.todo.todos)
         font-extrabold' > Create +</button>
         
       
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-7 pt-20 mt-5">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-7 pt-20 mt-5" >
     {Todo.map((item) => (
-      <div  className="bg-white/20 bg-opacity-40 backdrop-blur-lg border border-white border-opacity-30 p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 object-fill">
+      <div  className="bg-white/20 bg-opacity-40 backdrop-blur-lg border border-white border-opacity-30 p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 object-fill"  data-aos="zoom-in">
 
         <h3 className="text-xl font-semibold text-white">Title : {item.title}</h3>
         <p className="text-white mt-2">{item.description}</p>

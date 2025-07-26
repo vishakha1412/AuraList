@@ -9,8 +9,8 @@ import { selectTodos } from '../features/todoSlice.js';
 
 
 const User = () => {
-    
-const [done, setDone] = useState(false);
+ 
+
   
     
      
@@ -23,20 +23,8 @@ const handleDelete = (id) => {
 const handleUpdate = (id) => {
   navigate(`/update/${id}`);
 }
-const handleDone = (id) => {
-  const updatedTodo = Todo.map(item => {
-    if (item.id === id) {
-      setDone(!done);
-      return { ...item, done: !item.done }; // Toggle done status
-       
-    }
-    return item;
-
-    
-  });
-  dispatch(updateTodo(updatedTodo));
-  console.log(updatedTodo);
-}
+ 
+ 
 const Todo= useSelector((state) => state.todo.todos)
      
      
@@ -74,11 +62,7 @@ const Todo= useSelector((state) => state.todo.todos)
       Update
     </button>
      
-    <button   onClick={() =>handleDone(item.id)} className={`s hover:bg-green-500 text-white px-4 py-2 rounded-md text-sm font-medium transition 
-      ${done ? 'bg-pink-400' : 'bg-green-400'}
-       
-    `}
-    >{done?'Done':'Mark done'}</button>
+     
     </div>
      
   </div>

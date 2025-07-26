@@ -10,13 +10,6 @@ const persistConfig = {
 };
 
 const persistedTodoReducer = persistReducer(persistConfig, todoReducer);
-
-/*export const store=configureStore({
-    reducer:{
-        todo : todoReducer
-    },
-    
-}*/;
 export const store = configureStore({
   reducer: {
     todo: persistedTodoReducer, // same key as before: 'todo'

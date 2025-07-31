@@ -22,6 +22,7 @@ export const About = () => {
 
           <li>❤️Once Mark done cannot be Undone,if you want to undone then you have to update your Tasks</li>
         </ul>
+        <h1 className='text-2xl text-red-500'>By VISHAKHA SHARMA </h1>
         
         
         </div>

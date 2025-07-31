@@ -18,7 +18,7 @@ const Update = () => {
         <div className="space-x-6 hidden md:flex">
           
            <NavLink to="add" className="hover:text-white-200 transition hover:bg-red-500  hover:px-2 hover:rounded-4xl font-bold">Create</NavLink> 
-           <NavLink to="tasks" className="hover:text-white-200 transition  hover:bg-red-500  hover:px-2 hover:rounded-4xl font-bold">Tasks</NavLink> 
+           <NavLink to="tasks" className="hover:text-white-200 transition  hover:bg-red-500  hover:px-2 hover:rounded-4xl font-bold">Aura</NavLink> 
           <NavLink to="about" className="hover:text-white-200 transition  hover:bg-red-500  hover:px-2 hover:rounded-4xl font-bold">About</NavLink>
         </div>
 
@@ -58,7 +58,7 @@ const Update = () => {
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2 bg-indigo-500">
            <NavLink to="add" className="hover:text-indigo-200 transition">Create</NavLink> 
-          <NavLink to="/tasks" className="block hover:text-indigo-200">Tasks</NavLink>
+          <NavLink to="/tasks" className="block hover:text-indigo-200">Aura</NavLink>
            <NavLink to="/about" className="block hover:text-indigo-200">About</NavLink>
         </div>
       )}
